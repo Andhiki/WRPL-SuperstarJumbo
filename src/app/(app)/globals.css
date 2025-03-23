@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+  body {
+    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+    fill-opacity: 20;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #783719;
+  }
+}
+
+@media (max-width: 1023px) {
+  /* For Webkit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For Firefox */
+  html {
+    scrollbar-width: none;
+    overflow-y: scroll;
+  }
+
+  /* For Internet Explorer and Edge */
+  body {
+    -ms-overflow-style: none;
+  }
+}
+
+.highlighted-navbar {
+  background-image: linear-gradient(to right, #D66A39, #D66A39 50%, #D66A39 50%, #D66A39);
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease;
+}
+
+.highlighted-navbar:hover,
+.highlighted-navbar.active {
+  background-size: 200% 1px;
+}
+
+.actived-navbar {
+  background-image: linear-gradient(to right, #D66A39, #D66A39 50%, #D66A39 50%, #D66A39);
+  background-size: 200% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease;
+}
