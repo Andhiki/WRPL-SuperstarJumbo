@@ -1,52 +1,22 @@
-import Image from 'next/image'
-import NavbarResolver from '@/components/navbar-resolver'
-import Container from '@/components/container'
-import { Button } from '@/components/ui/button'
-import { Home } from 'lucide-react'
 import Link from 'next/link'
+import { Book } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
-    <main className='relative h-auto'>
-      <Image
-        src={'/assets/home/hero-bg.webp'}
-        alt='Preview Catalogue of Ren jana Furniture'
-        fill
-        sizes='100%'
-        className='object-cover'
-      />
-      <NavbarResolver />
-      <Container className='relative'>
-        <div className='mx-auto mb-12 grid w-full grid-cols-1 justify-center rounded-xl bg-background p-3 sm:grid-cols-2 sm:h-[45vh] sm:items-end sm:gap-0 sm:pb-3 md:aspect-[823/549] sm:space-x-8'>
-          <div className='flex items-center justify-center sm:justify-end h-auto min-h-72 w-auto sm:h-full sm:w-auto sm:pr-8'>
-            <Image
-              src={`/assets/404/404 - Chair.webp`}
-              alt='Catalogue'
-              width={496}
-              height={517}
-              className='rounded-lg object-contain w-60 h-auto'
-              priority
-            />
-          </div>
-          <div className='gap-2 flex flex-col justify-center items-center sm:items-start sm:gap-3 sm:self-center pb-4 sm:pb-0'>
-            <h1 className='justify-self-center text-7xl font-bold sm:text-6xl'>
-              404
-            </h1>
-            <h3 className='justify-self-center text-lg font-bold md:text-2xl'>
-              Oops, page not found
-            </h3>
-            <p className='mb-4 sm:mb-2 text-center sm:text-left text-sm md:text-base'>
-              We can’t seem to find the page<br />you’re looking for
-            </p>
-            <Link href='/' className='justify-self-center'>
-              <Button className='font-normal' variant={'notFound'}>
-                <Home />
-                Go Back Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </Container>
+    <main className="min-h-screen flex items-center justify-center px-6">
+      <div className="text-center space-y-6">
+        <Book className="mx-auto h-24 w-24 text-blue-600 animate-bounce" />
+        <h1 className="text-4xl font-bold text-gray-900">Halaman Tidak Ditemukan</h1>
+        <p className="text-gray-600 max-w-md mx-auto">
+          Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin buku yang Anda cari sudah dipinjam?
+        </p>
+        <Button asChild className="mt-8">
+          <Link href="/">
+            Kembali ke Beranda
+          </Link>
+        </Button>
+      </div>
     </main>
   )
 }

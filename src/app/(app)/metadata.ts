@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const defaultMetadata: Metadata = {
-  title: 'Renjana Furniture - Redefining Your Space',
-  description: 'Discover beautifully designed furniture for your home.',
+  title: 'SuperstarJumbo - Book Store',
+  description: 'Beli buku? Ya di sini!.',
   icons: '/public/favicon.ico',
   openGraph: {
-    title: 'Renjana Furniture - Redefining Your Space',
-    description: 'Discover beautifully designed furniture for your home.',
+    title: 'SuperstarJumbo - Book Store',
+    description: 'Beli buku? Ya di sini!..',
     type: 'website',
     locale: 'en_US',
   },

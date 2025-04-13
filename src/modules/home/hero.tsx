@@ -1,9 +1,9 @@
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <section className="relative w-full h-screen flex items-center justify-center bg-gradient-to-r from-blue-500/50 to-indigo-600/50 text-black">
       <div className="container mx-auto px-6 text-center">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          Temukan Buku Favoritmu di <span className="text-yellow-400">BookStore</span>
+          Temukan Buku Favoritmu di <span className="text-indigo-600">BookStore</span>
         </h1>
         <p className="mt-4 text-lg md:text-xl">
           Ribuan koleksi buku terbaik untuk menemani hari-harimu.
@@ -11,13 +11,13 @@ export default function Hero() {
         <div className="mt-6 flex justify-center gap-4">
           <a
             href="#shop"
-            className="px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition"
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-400 transition"
           >
             Belanja Sekarang
           </a>
           <a
             href="#about"
-            className="px-6 py-3 border border-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-gray-900 transition"
+            className="px-6 py-3 border border-white font-semibold rounded-lg shadow-md bg-white  hover:text-gray-900 hover:bg-slate-200 transition"
           >
             Pelajari Lebih Lanjut
           </a>
