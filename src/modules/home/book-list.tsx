@@ -27,7 +27,7 @@ export default async function BookList() {
 
   return (
     <section className='container mx-auto py-12 px-4'>
-      <h2 className='text-2xl font-bold text-center mb-6'>Koleksi Buku</h2>
+      <h2 className='text-2xl font-bold text-center mb-6'>Koleksi Buku</h2> 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
         {books.map((book) => (
           <Card key={book.id} className='overflow-hidden shadow-lg flex flex-col h-full'>
