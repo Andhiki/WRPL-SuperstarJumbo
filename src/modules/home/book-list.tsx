@@ -16,17 +16,7 @@ const getBookImageUrl = (book: Book) => {
     return '/placeholder.jpg';
   }
 
-  const imageUrl = book.coverImage.url;
-  
-  // If the URL already has the domain, extract just the path portion
-  if (imageUrl.includes('superstar-jumbo.vercel.app')) {
-    // Extract the path after the domain
-    const urlObj = new URL(imageUrl);
-    return urlObj.pathname;
-  }
-  
-  // If it's already a relative path (starts with /), return it directly
-  return imageUrl;
+  return book.coverImage.url;
 };
 
 export default async function BookList() {
