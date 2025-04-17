@@ -6,14 +6,17 @@ import { getAllBooks } from "@/helpers/fetchBooks";
 import { Book } from '@/types/book';
 
 const getBookImageUrl = (book: Book) => {
-  // Check if book has coverImage property and it's an object
   if (!book.coverImage || typeof book.coverImage !== 'object') {
     return '/placeholder.jpg';
   }
 
-  // Check if url exists on coverImage
   if (!('url' in book.coverImage)) {
     return '/placeholder.jpg';
+  }
+
+  // If the URL is relative, prepend the API URL
+  if (book.coverImage.url.startsWith('/')) {
+    return `superstar-jumbo.vercel.app/${book.coverImage.url}`;
   }
 
   return book.coverImage.url;
