@@ -6,13 +6,13 @@ import { getAllBooks } from "@/helpers/fetchBooks";
 import { Book } from '@/types/book';
 
 const getBookImageUrl = (book: Book) => {
-  // Check if book has coverImage property and it's an object
+  // Check if book has image property
   if (!book.coverImage || typeof book.coverImage !== 'object') {
     return '/placeholder.jpg';
   }
 
-  // Check if url exists on coverImage
-  if (!('url' in book.coverImage)) {
+  // Check if url property exists
+  if (!book.coverImage.url) {
     return '/placeholder.jpg';
   }
 
