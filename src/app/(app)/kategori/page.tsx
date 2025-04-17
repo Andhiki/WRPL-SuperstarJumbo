@@ -8,7 +8,7 @@ export default async function CategoriesPage() {
 
   return (
     <Container>
-      <div className="py-12">
+      <div className="py-20 min-h-screen">
         <h1 className="text-3xl font-bold text-center mb-8">Kategori Buku</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
@@ -19,7 +19,7 @@ export default async function CategoriesPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    {category.bookCount || 0} buku tersedia
+                    Data sedang dimuat...
                   </p>
                 </CardContent>
               </Card>

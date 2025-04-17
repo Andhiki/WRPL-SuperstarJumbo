@@ -1,14 +1,20 @@
+export interface CoverImage {
+  id: number;
+  url: string;
+  alt?: string;
+  filename: string;
+}
+
 export interface Book {
   id: number;
   title: string;
   slug: string;
-  description?: string;
-  author: string;
+  author: string | { name: string };
+  description: string;
   price: number;
   stock: number;
-  publishedDate?: string; // ISO date format (YYYY-MM-DD)
-  category?: string;
-  coverImage?: string; // URL of the book cover
+  coverImage?: CoverImage;
+  category: { name: string } | string;
   createdAt: string;
   updatedAt: string;
 }
