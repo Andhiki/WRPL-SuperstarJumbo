@@ -34,7 +34,7 @@ export default async function BookList() {
           {/* Image container dengan ukuran tetap */}
           <div className='relative w-full h-60'>
             <Image 
-              src={getBookImageUrl(book)}
+              src={book.coverImage?.url || '/placeholder.jpg'}
               alt={book.title || 'Book cover'} 
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
