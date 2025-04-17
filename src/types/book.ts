@@ -1,19 +1,22 @@
-export interface CoverImage {
+export interface BookCoverImage {
   id: number;
   url: string;
   alt?: string;
   filename: string;
+  mimeType: string;
+  filesize: number;
+  width: number;
+  height: number;
 }
 
 export interface Book {
   id: number;
   title: string;
-  slug: string;
   author: string | { name: string };
   description: string;
   price: number;
   stock: number;
-  coverImage?: CoverImage;
+  coverImage: BookCoverImage;
   category: { name: string } | string;
   createdAt: string;
   updatedAt: string;

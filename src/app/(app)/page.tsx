@@ -3,14 +3,14 @@ import { Metadata } from 'next/types'
 import BookList from '@/modules/home/book-list'
 
 export const metadata: Metadata = {
-  title: 'Renjana Furniture - Redefining Your Space',
-  description: 'Transform your living space with our exclusive collection of beautifully crafted furniture.',
+  title: 'SuperstarJumbo - Book Store',
+  description: 'Beli buku? Ya di sini!',
   openGraph: {
-    title: 'Welcome to Renjana Furniture - Redefining Your Space',
-    description: 'Transform your living space with our exclusive collection of beautifully crafted furniture.',
+    title: 'SuperstarJumbo - Book Store',
+    description: 'Beli buku? Ya di sini!',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Renjana Furniture',
+    siteName: 'SuperstarJumbo Book Store',
   },
 }
 
