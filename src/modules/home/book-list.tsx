@@ -6,23 +6,29 @@ import { getAllBooks } from "@/helpers/fetchBooks";
 import { Book } from '@/types/book';
 
 const getBookImageUrl = (book: Book) => {
-  // Check if coverImage exists and is an object
+  // Check if book has coverImage property and it's an object
   if (!book.coverImage || typeof book.coverImage !== 'object') {
     return '/placeholder.jpg';
   }
 
-  // Check if url property exists and is a string
-  if (!book.coverImage.url || typeof book.coverImage.url !== 'string') {
+  // Check if url exists on coverImage
+  if (!('url' in book.coverImage)) {
     return '/placeholder.jpg';
   }
 
-  // Handle relative URLs by prepending API URL
-  if (book.coverImage.url.startsWith('/')) {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://superstar-jumbo.vercel.app' || 'http://localhost:3000';
-    return `${baseUrl}${book.coverImage.url}`;
+  const imageUrl = book.coverImage.url;
+  
+  // If the URL is already absolute (starts with http:// or https://), return it as is
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    return imageUrl;
   }
-
-  return book.coverImage.url;
+  
+  // For relative URLs, check environment and prepend base URL if needed
+  const baseUrl = process.env.NODE_ENV === 'production' 
+    ? process.env.NEXT_PUBLIC_API_URL || 'https://superstar-jumbo.vercel.app'
+    : '';
+    
+  return `${baseUrl}${imageUrl}`;
 };
 
 export default async function BookList() {
