@@ -18,17 +18,15 @@ const getBookImageUrl = (book: Book) => {
 
   const imageUrl = book.coverImage.url;
   
-  // If the URL is already absolute (starts with http:// or https://), return it as is
-  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
-    return imageUrl;
+  // If the URL already has the domain, extract just the path portion
+  if (imageUrl.includes('superstar-jumbo.vercel.app')) {
+    // Extract the path after the domain
+    const urlObj = new URL(imageUrl);
+    return urlObj.pathname;
   }
   
-  // For relative URLs, check environment and prepend base URL if needed
-  const baseUrl = process.env.NODE_ENV === 'production' 
-    ? process.env.NEXT_PUBLIC_API_URL || 'https://superstar-jumbo.vercel.app'
-    : '';
-    
-  return `${baseUrl}${imageUrl}`;
+  // If it's already a relative path (starts with /), return it directly
+  return imageUrl;
 };
 
 export default async function BookList() {
