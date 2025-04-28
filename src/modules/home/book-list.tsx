@@ -37,6 +37,7 @@ export default async function BookList() {
               src={book.coverImage?.url || '/placeholder.jpg'}
               alt={book.title || 'Book cover'} 
               fill
+              priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               className='rounded-t-lg object-cover' 
             />

@@ -64,7 +64,7 @@ const Navbar = () => {
           <SheetTrigger className='md:hidden'>
             <Menu size={24} />
           </SheetTrigger>
-          <SheetContent side='right' className='translate-y-1/2'>
+          <SheetContent side='right' className=''>
             <SheetHeader>
               <SheetTitle>Menu</SheetTitle>
             </SheetHeader>
