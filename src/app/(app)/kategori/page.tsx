@@ -17,11 +17,6 @@ export default async function CategoriesPage() {
                 <CardHeader>
                   <CardTitle className="text-xl">{category.name}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Data sedang dimuat...
-                  </p>
-                </CardContent>
               </Card>
             </Link>
           ))}

@@ -6,16 +6,16 @@ import Link from "next/link";
 export default async function CategoryDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: { kategori: string };
 }) {
-  const category = await getCategoryBySlug(params.slug);
-  const books = await getBooksByCategory(params.slug);
-
+  const category = await getCategoryBySlug(params.kategori);
+  
   if (!category) {
     return (
       <Container>
         <div className="py-20 min-h-screen text-center">
           <h1 className="text-3xl font-bold mb-4">Kategori tidak ditemukan</h1>
+          <p className="mb-4">Slug yang dicari: {params.kategori}</p>
           <Link href="/kategori" className="text-blue-600 hover:underline">
             ← Kembali ke Semua Kategori
           </Link>
@@ -23,6 +23,9 @@ export default async function CategoryDetailPage({
       </Container>
     );
   }
+
+  // Changed from params.slug to params.kategori
+  const books = await getBooksByCategory(params.kategori);
 
   return (
     <Container>
@@ -45,7 +48,6 @@ export default async function CategoryDetailPage({
                   <CardTitle className="text-xl">{book.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">Penulis: {book.author}</p>
                   <p className="text-gray-600 mt-2">Harga: Rp{book.price?.toLocaleString()}</p>
                   <p className="text-gray-600">Stok: {book.stock}</p>
                 </CardContent>
