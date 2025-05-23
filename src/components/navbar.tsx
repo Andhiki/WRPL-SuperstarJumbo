@@ -16,6 +16,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
+import CartSheet from './cart-sheet'
 
 const NAV_LINKS = [
   { name: 'Kategori', href: '/kategori' },
@@ -53,30 +54,34 @@ const Navbar = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className='hidden md:flex gap-6'>
+        <nav className='hidden md:flex items-center gap-6'>
           {NAV_LINKS.map((nav, i) => (
             <Link key={i} href={nav.href} className={cn('text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-110', pathname === nav.href && 'font-bold')}>{nav.name}</Link>
           ))}
+          <CartSheet />
         </nav>
         
         {/* Mobile Menu */}
-        <Sheet>
-          <SheetTrigger className='md:hidden'>
-            <Menu size={24} />
-          </SheetTrigger>
-          <SheetContent side='right' className=''>
-            <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
-            </SheetHeader>
-            <nav className='flex flex-col gap-4 mt-4'>
-              {NAV_LINKS.map((nav, i) => (
-                <SheetClose asChild key={i}>
-                  <Link href={nav.href} className='text-lg transition-all duration-300 hover:scale-105'>{nav.name}</Link>
-                </SheetClose>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
+        <div className="flex items-center gap-2 md:hidden">
+          <CartSheet />
+          <Sheet>
+            <SheetTrigger className='md:hidden'>
+              <Menu size={24} />
+            </SheetTrigger>
+            <SheetContent side='right' className=''>
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <nav className='flex flex-col gap-4 mt-4'>
+                {NAV_LINKS.map((nav, i) => (
+                  <SheetClose asChild key={i}>
+                    <Link href={nav.href} className='text-lg transition-all duration-300 hover:scale-105'>{nav.name}</Link>
+                  </SheetClose>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

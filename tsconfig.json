@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "types": [
-      "node",
-      "payload"
-    ],
-    "target": "ES2017",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -29,11 +25,14 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "@payload-config": [
-        "./src/payload.config.ts"
       ]
-    }
+    },
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-dom"
+    ]
   },
   "include": [
     "next-env.d.ts",

@@ -1,10 +1,11 @@
 // app/layout.tsx
 import { Metadata } from 'next/types'
-import './globals.css'
+import '@/styles/globals.css'
 import { playfair, plusJakartaSans } from '@/helpers/fonts'
 import GSAPProvider from '@/lib/gsap-provider'
 import { Toaster } from '@/components/ui/toaster'
 import ClientWrapper from '@/components/client-wrapper'
+import { CartProvider } from '@/hooks/useCart'
 
 export const metadata: Metadata = {
   title: {
@@ -27,11 +28,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
-      <body className={`${plusJakartaSans.className} ${playfair.variable} bg-white text-black antialiased`}>
+    <html lang='en' className={`${plusJakartaSans.variable} ${playfair.variable}`}>
+      <body className="font-sans bg-white text-black antialiased">
         <GSAPProvider>
-          <ClientWrapper>{children}</ClientWrapper>
-          <Toaster />
+          <CartProvider>
+            <ClientWrapper>{children}</ClientWrapper>
+            <Toaster />
+          </CartProvider>
         </GSAPProvider>
       </body>
     </html>

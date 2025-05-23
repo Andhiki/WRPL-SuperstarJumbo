@@ -12,8 +12,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ['var(--playfair)'],
-        lato: ['var(--lato)'],
+        sans: ['var(--font-plus-jakarta)'],
+        playfair: ['var(--font-playfair)'],
+        lato: ['var(--font-lato)'],
+        inter: ['var(--font-inter)'],
       },
       colors: {
         background: '#FFFFFF',
