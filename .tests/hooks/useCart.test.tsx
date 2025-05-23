@@ -1,3 +1,19 @@
+/**
+ * Test Case: Cart Functionality
+ * Author: Andreandhiki Riyanta Putra
+ * Description: Unit tests for the cart functionality using useCart hook
+ * Test cases cover:
+
+ * - Adding items to cart
+ * - Updating item quantities
+ * - should initialize with empty cart
+ * - should add item to cart
+ * - should increase quantity when adding same item
+ * - Remove item from cart
+ * - Clear cart
+ * - Persist cart in localStorage
+ */
+
 import { renderHook, act } from '@testing-library/react'
 import { useCart, CartProvider } from '@/hooks/useCart'
 import { ReactNode } from 'react'
