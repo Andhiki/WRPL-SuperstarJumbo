@@ -29,19 +29,31 @@ const config: Config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/__mocks__/fileMock.js'
+    '\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i': 'jest-transform-stub',
   },
   
   // An array of file extensions your modules use
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/.tests/**/*.test.[jt]s?(x)'],
+  testMatch: [
+    '**/__tests__/**/*.(test|spec).[jt]s?(x)',
+    '**/*.(test|spec).[jt]s?(x)'
+  ],
   
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.(ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
+     '^.+\\.(t|j)sx?$': ['babel-jest', {
+      presets: [
+        ['next/babel', { 'preset-react': { runtime: 'automatic' } }]
+      ],
+    }],
   },
+  
+  // Transform node_modules that use ES modules
+  transformIgnorePatterns: [
+    'node_modules/(?!(payload|@payloadcms)/)',
+  ],
   
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
@@ -51,9 +63,26 @@ const config: Config = {
   
   // The glob patterns Jest uses to detect test files
   testEnvironmentOptions: {
-    url: 'http://localhost'
-  }
+    url: 'http://localhost:3000'
+  },
+
+  // Coverage settings
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/index.{js,ts}',
+    '!src/**/*.stories.{js,jsx,ts,tsx}',
+  ],
+
+  // Setup files to run before each test (optional)
+  // setupFiles: ['<rootDir>/jest.polyfills.js'],
+
+  // Error handling
+  errorOnDeprecated: true,
+  
+  // Module resolution
+  resolver: undefined,
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-export default createJestConfig(config) 
+export default createJestConfig(config)
