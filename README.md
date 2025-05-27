@@ -82,19 +82,40 @@ feat(landing page): add book detail page
 
 ---
 
-## 🚀 How to Run the Project
+## 🚀 How to Run the Project (with Docker & Makefile)
 
-### 1️⃣ Install Dependencies
+### 1️⃣ Jalankan Development (Hot Reload)
+Pastikan Docker sudah terinstall dan berjalan.
+
+```bash
+make up-dev
 ```
-pnpm install
+Akses di browser: [http://localhost:3000](http://localhost:3000)
+
+### 2️⃣ Stop Development
+```bash
+make down-dev
 ```
 
-### 2️⃣ Start the Development Server
-```
-pnpm run dev
+### 3️⃣ Lihat Logs Development
+```bash
+make logs-dev
 ```
 
-### 3️⃣ Open in Browser
-Go to `http://localhost:3000`
+### 4️⃣ Jalankan Production (Jika Sudah Siap Deploy)
+```bash
+make up-prod
+```
+Akses di browser: [http://localhost:3000](http://localhost:3000)
+
+### 5️⃣ Stop Production
+```bash
+make down-prod
+```
 
 ---
+
+> **Catatan:**
+> - Untuk development, perubahan file di folder project akan langsung ter-refleksi di container (hot reload).
+> - Jalankan `make up-dev` tanpa `--build` jika tidak ada perubahan dependensi untuk mempercepat startup.
+> - Untuk rebuild image (misal setelah update dependensi), jalankan `make up-dev` lagi.
