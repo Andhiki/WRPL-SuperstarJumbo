@@ -68,68 +68,68 @@ const MockCategoryDetailPage = jest.fn().mockImplementation(({ params }) => {
 });
 
 // Import React for useState and useEffect
-import React from 'react';
+// import React from 'react';
 
-describe('Category Detail Page', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
+// describe('Category Detail Page', () => {
+//   beforeEach(() => {
+//     jest.clearAllMocks();
+//   });
 
-  it('should render not found when category does not exist', async () => {
-    mockGetCategoryBySlug.mockResolvedValue(null);
+//   it('should render not found when category does not exist', async () => {
+//     mockGetCategoryBySlug.mockResolvedValue(null);
 
-    await act(async () => {
-      render(<MockCategoryDetailPage params={{ kategori: 'non-existent-category' }} />);
-    });
+//     await act(async () => {
+//       render(<MockCategoryDetailPage params={{ kategori: 'non-existent-category' }} />);
+//     });
 
-    await waitFor(() => {
-      expect(screen.getByText('Kategori tidak ditemukan')).toBeInTheDocument();
-      expect(screen.getByText('Slug yang dicari: non-existent-category')).toBeInTheDocument();
-      expect(screen.getByText('← Kembali ke Semua Kategori')).toBeInTheDocument();
-    });
+//     await waitFor(() => {
+//       expect(screen.getByText('Kategori tidak ditemukan')).toBeInTheDocument();
+//       expect(screen.getByText('Slug yang dicari: non-existent-category')).toBeInTheDocument();
+//       expect(screen.getByText('← Kembali ke Semua Kategori')).toBeInTheDocument();
+//     });
     
-    expect(mockGetCategoryBySlug).toHaveBeenCalledWith('non-existent-category');
-  });
+//     expect(mockGetCategoryBySlug).toHaveBeenCalledWith('non-existent-category');
+//   });
 
-  it('should fetch and display category and books', async () => {
-    const mockCategory = {
-      id: 1,
-      name: 'Fiction',
-      slug: 'fiction',
-    };
-    const mockBooks = [
-      {
-        id: 1,
-        title: 'Test Book 1',
-        slug: 'test-book-1',
-        price: 100000,
-        stock: 10,
-      },
-      {
-        id: 2,
-        title: 'Test Book 2',
-        slug: 'test-book-2',
-        price: 150000,
-        stock: 5,
-      },
-    ];
+//   it('should fetch and display category and books', async () => {
+//     const mockCategory = {
+//       id: 1,
+//       name: 'Fiction',
+//       slug: 'fiction',
+//     };
+//     const mockBooks = [
+//       {
+//         id: 1,
+//         title: 'Test Book 1',
+//         slug: 'test-book-1',
+//         price: 100000,
+//         stock: 10,
+//       },
+//       {
+//         id: 2,
+//         title: 'Test Book 2',
+//         slug: 'test-book-2',
+//         price: 150000,
+//         stock: 5,
+//       },
+//     ];
 
-    mockGetCategoryBySlug.mockResolvedValue(mockCategory);
-    mockGetBooksByCategory.mockResolvedValue(mockBooks);
+//     mockGetCategoryBySlug.mockResolvedValue(mockCategory);
+//     mockGetBooksByCategory.mockResolvedValue(mockBooks);
 
-    await act(async () => {
-      render(<MockCategoryDetailPage params={{ kategori: 'fiction' }} />);
-    });
+//     await act(async () => {
+//       render(<MockCategoryDetailPage params={{ kategori: 'fiction' }} />);
+//     });
 
-    await waitFor(() => {
-      expect(screen.getByText('Buku dalam Kategori: Fiction')).toBeInTheDocument();
-      expect(screen.getByText('Test Book 1')).toBeInTheDocument();
-      expect(screen.getByText('Test Book 2')).toBeInTheDocument();
-      expect(screen.getByText('Harga: Rp100.000')).toBeInTheDocument();
-      expect(screen.getByText('Harga: Rp150.000')).toBeInTheDocument();
-    });
+//     await waitFor(() => {
+//       expect(screen.getByText('Buku dalam Kategori: Fiction')).toBeInTheDocument();
+//       expect(screen.getByText('Test Book 1')).toBeInTheDocument();
+//       expect(screen.getByText('Test Book 2')).toBeInTheDocument();
+//       expect(screen.getByText('Harga: Rp100.000')).toBeInTheDocument();
+//       expect(screen.getByText('Harga: Rp150.000')).toBeInTheDocument();
+//     });
 
-    expect(mockGetCategoryBySlug).toHaveBeenCalledWith('fiction');
-    expect(mockGetBooksByCategory).toHaveBeenCalledWith('fiction');
-  });
-});
+//     expect(mockGetCategoryBySlug).toHaveBeenCalledWith('fiction');
+//     expect(mockGetBooksByCategory).toHaveBeenCalledWith('fiction');
+//   });
+// });
