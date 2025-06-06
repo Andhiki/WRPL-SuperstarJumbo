@@ -3,19 +3,22 @@ import Container from "@/components/container";
 import { getBooksByCategory, getCategoryBySlug } from "@/helpers/fetchCategories";
 import Link from "next/link";
 
+type params = Promise<{ kategori: string }>
+
 export default async function CategoryDetailPage({
   params,
 }: {
-  params: { kategori: string };
+  params: params;
 }) {
-  const category = await getCategoryBySlug(params.kategori);
+  const { kategori } = await params;
+  const category = await getCategoryBySlug(kategori);
   
   if (!category) {
     return (
       <Container>
         <div className="py-20 min-h-screen text-center">
           <h1 className="text-3xl font-bold mb-4">Kategori tidak ditemukan</h1>
-          <p className="mb-4">Slug yang dicari: {params.kategori}</p>
+          <p className="mb-4">Slug yang dicari: {kategori}</p>
           <Link href="/kategori" className="text-blue-600 hover:underline">
             ← Kembali ke Semua Kategori
           </Link>
@@ -25,7 +28,7 @@ export default async function CategoryDetailPage({
   }
 
   // Changed from params.slug to params.kategori
-  const books = await getBooksByCategory(params.kategori);
+  const books = await getBooksByCategory(kategori);
 
   return (
     <Container>

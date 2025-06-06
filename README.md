@@ -113,9 +113,22 @@ Akses di browser: [http://localhost:3000](http://localhost:3000)
 make down-prod
 ```
 
+### 6️⃣ Build & Push Docker Image
+```bash
+# Build image
+docker build -t lesalmon/wrpl-superstarjumbo:latest -f Dockerfile.prod .
+
+# Login ke Docker Hub (jika belum)
+docker login
+
+# Push image
+docker push lesalmon/wrpl-superstarjumbo:latest
+```
+
 ---
 
 > **Catatan:**
 > - Untuk development, perubahan file di folder project akan langsung ter-refleksi di container (hot reload).
 > - Jalankan `make up-dev` tanpa `--build` jika tidak ada perubahan dependensi untuk mempercepat startup.
 > - Untuk rebuild image (misal setelah update dependensi), jalankan `make up-dev` lagi.
+> - Pastikan sudah login ke Docker Hub sebelum push image (`docker login`).

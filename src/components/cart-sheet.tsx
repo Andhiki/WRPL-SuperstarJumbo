@@ -117,9 +117,11 @@ export default function CartSheet() {
                     View Cart
                   </Button>
                 </Link>
-                <Button className="flex-1">
-                  Checkout
-                </Button>
+                <Link href={`/checkout`} className="flex-1">
+                  <Button className="w-full">
+                    Checkout
+                  </Button>
+                </Link>
               </div>
             </div>
           </>

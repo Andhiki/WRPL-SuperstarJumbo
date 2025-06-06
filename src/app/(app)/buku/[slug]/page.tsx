@@ -6,9 +6,11 @@ import { ArrowLeftIcon } from 'lucide-react'
 import Link from 'next/link'
 import AddToCartButton from '@/components/add-to-cart-button'
 
+type params = Promise<{ slug: string }>
 
-export default async function BookDetailPage({ params }: { params: { slug: string } }) {
-  const book = await getBookBySlug(params.slug)
+export default async function BookDetailPage({ params }: { params: params }) {
+  const { slug } = await params
+  const book = await getBookBySlug(slug)
   if (!book) return notFound()
 
   return (
