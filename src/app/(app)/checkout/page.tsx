@@ -34,17 +34,17 @@ export default function CheckoutPage() {
     e.preventDefault()
     setIsProcessing(true)
 
-    const formData = new FormData(e.currentTarget)
-    const orderData = {
-      customerName: formData.get('name'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      address: formData.get('address'),
-      city: formData.get('city'),
-      postalCode: formData.get('postalCode'),
-      items: cart.items,
-      totalAmount: cart.totalPrice,
-    }
+    // const formData = new FormData(e.currentTarget)
+    // const orderData = {
+    //   customerName: formData.get('name'),
+    //   email: formData.get('email'),
+    //   phone: formData.get('phone'),
+    //   address: formData.get('address'),
+    //   city: formData.get('city'),
+    //   postalCode: formData.get('postalCode'),
+    //   items: cart.items,
+    //   totalAmount: cart.totalPrice,
+    // }
 
     try {
       // Di sini nanti akan mengirim data ke backend

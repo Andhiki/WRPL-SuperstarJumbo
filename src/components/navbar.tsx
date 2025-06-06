@@ -5,16 +5,13 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import CartSheet from './cart-sheet'
 

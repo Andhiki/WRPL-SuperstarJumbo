@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/container";
 import { getAllCategories } from "@/helpers/fetchCategories"; // You'll need to create this
 import Link from "next/link";
