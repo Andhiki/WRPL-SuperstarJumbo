@@ -125,8 +125,8 @@ describe('Category Detail Page', () => {
       expect(screen.getByText('Buku dalam Kategori: Fiction')).toBeInTheDocument();
       expect(screen.getByText('Test Book 1')).toBeInTheDocument();
       expect(screen.getByText('Test Book 2')).toBeInTheDocument();
-      expect(screen.getByText('Harga: Rp100.000')).toBeInTheDocument();
-      expect(screen.getByText('Harga: Rp150.000')).toBeInTheDocument();
+      expect(screen.getByText('Harga: Rp100,000')).toBeInTheDocument();
+      expect(screen.getByText('Harga: Rp150,000')).toBeInTheDocument();
     });
 
     expect(mockGetCategoryBySlug).toHaveBeenCalledWith('fiction');
