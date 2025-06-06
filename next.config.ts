@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   },
   
   webpack: (config) => {
-    config.resolve.alias['@payload-config'] = path.resolve(__dirname, 'src/payload.config.ts')
+    config.resolve.alias['@payload-config'] = path.resolve(__dirname, '/src/payload.config.ts')
     return config
   }
 };
