@@ -24,7 +24,9 @@ jobs:
         pnpm --version
     
     - name: Install dependencies
-      run: pnpm install
+      run: |
+        pnpm install
+        pnpm add -D eslint-config-next @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
     
     - name: Run ESLint
       run: pnpm lint
